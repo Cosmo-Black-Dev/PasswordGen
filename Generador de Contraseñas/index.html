@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="logo_icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneradorDeConstraseñas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="box2">
+        <h1>Generador De Constraseñas</h1> 
+        <br>
+        <h4>Bienvenido, presiona el boton y crearé  <br> una constraseña segura por tí.</h4>
+        <br>
+  
+
+    <button id = "show_password" class = "btn btn-primary" type = "submit" pys-onClick="show_password">Generar Contraseña</button>
+        <div id="outputDiv" style="margin-top: 10px;margin-bottom: 10px;"></div>
+           
+<py-script> 
+from random import choice
+def show_password(*args, **kwargs):
+    output = Element("outputDiv")
+    
+    Numeros = "0123456789"
+    Minusculas = "abcdefghijklmnopqrstuvwxyz"
+    Mayusculas = Minusculas.upper()
+    Simbolos = "!@#$%&*_?>."
+
+    formulaBase = Numeros+Minusculas+Mayusculas+Simbolos
+    Password = "".join(choice(formulaBase) for i in range(12))
+    output.write(Password)
+</py-script>
+
+</div>
+</div>
+</body>
+</html>
